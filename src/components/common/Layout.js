@@ -61,7 +61,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </Link>
                             </div>
                             <div className="site-mast-right">
-                                <span style={{ color: '#FFFFFF', fontSize: '2rem' }}>Blog Juan Ladino</span>
+                                <span style={{ color: '#FFFFFF', fontSize: '2rem' }}>Juan Ladino´s Blog</span>
                             </div>
                         </div>
                         <nav className="site-nav">
@@ -73,12 +73,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 />
                             </div>
                             <div className="site-nav-right">
-                                <Link
-                                    className="site-nav-button"
-                                    to="/about"
-                                >
-                                    About
-                                </Link>
                             </div>
                         </nav>
                     </div>
