@@ -11,27 +11,39 @@ const Index = ({ data, pageContext }) => {
 
     return (
         <Layout isHome={true}>
-            <div className="container">
-                {/* Encabezado limpio y minimalista para el ejercicio de la UNIR */}
-                <section style={{ padding: "40px 0", textAlign: "center" }}>
-                    <h2 style={{ fontSize: "2.2rem", marginBottom: "10px", fontWeight: "700" }}>
-                        Entradas del Blog
-                    </h2>
-                    <p style={{ color: "#666", maxWidth: "600px", margin: "0 auto 30px auto", fontSize: "1.1rem" }}>
-                        Bienvenido. A continuación encontrarás las 3 entradas requeridas con texto e imágenes integradas.
-                    </p>
-                </section>
+    <div className="container">
+        {/* Reducimos el padding de 40px a 15px arriba para pegarlo al menú, y agrandamos la letra */}
+        <section style={{ padding: "15px 0 30px 0", textAlign: "center" }}>
+            <h1 style={{ 
+                fontSize: "3.5rem",       /* Mucho más grande y visible */
+                fontWeight: "800",        /* Más gruesa e imponente */
+                letterSpacing: "-1px",    /* Toque moderno y compacto */
+                marginBottom: "15px", 
+                color: "#15171a" 
+            }}>
+                Entradas del Blog
+            </h1>
+            <p style={{ 
+                color: "#666", 
+                maxWidth: "700px", 
+                margin: "0 auto", 
+                fontSize: "1.25rem",      /* Subimos un poco el tamaño del subtítulo */
+                lineHeight: "1.5" 
+            }}>
+                Bienvenido. A continuación encontrarás las 3 entradas requeridas con texto e imágenes integradas para la actividad de la UNIR.
+            </p>
+        </section>
 
-                {/* El contenedor nativo que pinta las tarjetas del blog */}
-                <section className="post-feed">
-                    {posts.map(({ node }) => (
-                        <PostCard key={node.id} post={node} />
-                    ))}
-                </section>
-                
-                <Pagination pageContext={pageContext} />
-            </div>
-        </Layout>
+        {/* El contenedor que pinta las tarjetas */}
+        <section className="post-feed">
+            {posts.map(({ node }) => (
+                <PostCard key={node.id} post={node} />
+            ))}
+        </section>
+        
+        <Pagination pageContext={pageContext} />
+    </div>
+</Layout>
     )
 }
 
