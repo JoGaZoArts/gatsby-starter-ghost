@@ -23,27 +23,15 @@ try {
             ? ghostConfig.development
             : ghostConfig.production;
 
-// ... viene el bloque de Ghost de arriba ...
-    }
-}
-
-// 1. AGREGA ESTA LÍNEA AQUÍ MISMO:
-process.env.SITEURL = `https://juan-ladino-s-blog.netlify.com`;
-
-// El código que ya tienes continuará aquí abajo:
-if (
-    process.env.NODE_ENV === `production` &&
-    config.siteUrl === `http://localhost:8000` &&
-    !process.env.SITEURL
-) {
-// ... el resto del archivo sigue igual ...
-    
     if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
         throw new Error(
             `GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`
         ); // eslint-disable-line
     }
 }
+
+// Forzamos la URL de producción para Netlify aquí mismo
+process.env.SITEURL = `https://juan-ladino-s-blog.netlify.com`;
 
 if (
     process.env.NODE_ENV === `production` &&
@@ -55,22 +43,12 @@ if (
     ); // eslint-disable-line
 }
 
-/**
- * This is the place where you can tell Gatsby which plugins to use
- * and set them up the way you want.
- *
- * Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
- *
- */
 module.exports = {
     siteMetadata: {
         siteUrl: process.env.SITEURL || config.siteUrl,
     },
     trailingSlash: 'always',
     plugins: [
-        /**
-         *  Content Plugins
-         */
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -78,8 +56,6 @@ module.exports = {
                 name: `pages`,
             },
         },
-        // Setup for optimised images.
-        // See https://www.gatsbyjs.org/packages/gatsby-image/
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -97,9 +73,6 @@ module.exports = {
                     ? ghostConfig.development
                     : ghostConfig.production,
         },
-        /**
-         *  Utility Plugins
-         */
         {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
