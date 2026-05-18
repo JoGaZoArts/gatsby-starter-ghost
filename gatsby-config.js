@@ -30,6 +30,14 @@ try {
     }
 }
 
+// LÍNEAS NUEVAS: Corrección automática de la barra diagonal para evitar que Ghost falle
+if (ghostConfig.production && ghostConfig.production.apiUrl) {
+    ghostConfig.production.apiUrl = ghostConfig.production.apiUrl.replace(/\/$/, "");
+}
+if (ghostConfig.development && ghostConfig.development.apiUrl) {
+    ghostConfig.development.apiUrl = ghostConfig.development.apiUrl.replace(/\/$/, "");
+}
+
 // Forzamos la URL de producción para Netlify aquí mismo
 process.env.SITEURL = `https://juan-ladino-s-blog.netlify.com`;
 
