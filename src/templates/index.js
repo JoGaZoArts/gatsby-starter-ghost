@@ -13,7 +13,7 @@ const Index = ({ data, pageContext }) => {
         <Layout isHome={true}>
     <div className="container">
         {/* Reducimos el padding de 40px a 15px arriba para pegarlo al menú, y agrandamos la letra */}
-        <section style={{ padding: "15px 0 30px 0", textAlign: "center" }}>
+        <section style={{ padding: "10px 0 30px 0", textAlign: "center" }}>
             <h1 style={{ 
                 fontSize: "3.5rem",       /* Mucho más grande y visible */
                 fontWeight: "800",        /* Más gruesa e imponente */
@@ -23,16 +23,6 @@ const Index = ({ data, pageContext }) => {
             }}>
                 Entradas del Blog
             </h1>
-            <p style={{ 
-                color: "#666", 
-                maxWidth: "700px", 
-                margin: "0 auto", 
-                fontSize: "1.25rem",      /* Subimos un poco el tamaño del subtítulo */
-                lineHeight: "1.5" 
-            }}>
-                Bienvenido.
-                Aquí encontrarás las entradas de mi Blog.
-            </p>
         </section>
 
         {/* El contenedor que pinta las tarjetas */}

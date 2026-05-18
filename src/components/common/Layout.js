@@ -32,6 +32,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
             <html lang={site.lang} />
             <style type="text/css">{`${site.codeinjection_styles}`}</style>
             <body className={bodyClass} />
+            <title>Juan Ladino's Blog</title>
+            <meta property="og:title" content="Juan Ladino's Blog" />
         </Helmet>
 
         <div className="viewport">
