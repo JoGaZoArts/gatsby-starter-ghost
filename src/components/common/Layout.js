@@ -60,6 +60,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     )}
                                 </Link>
                             </div>
+                            <div className="site-mast-right">
+                                <span style={{ color: '#666', fontSize: '0.9rem' }}>Blog Juan Ladino</span>
+                            </div>
                         </div>
                         {isHome ? (
                             <div className="site-banner">
