@@ -53,6 +53,8 @@ if (
 
 module.exports = {
     siteMetadata: {
+        title: `Juan Ladino's Blog`,
+        description: `Actividad 1 - Creación de un Blog`,
         siteUrl: process.env.SITEURL || config.siteUrl,
     },
     trailingSlash: 'always',

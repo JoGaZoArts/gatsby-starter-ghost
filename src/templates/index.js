@@ -30,7 +30,8 @@ const Index = ({ data, pageContext }) => {
                 fontSize: "1.25rem",      /* Subimos un poco el tamaño del subtítulo */
                 lineHeight: "1.5" 
             }}>
-                Bienvenido. A continuación encontrarás las 3 entradas requeridas con texto e imágenes integradas para la actividad de la UNIR.
+                Bienvenido.
+                Aquí encontrarás las entradas de mi Blog.
             </p>
         </section>
 
