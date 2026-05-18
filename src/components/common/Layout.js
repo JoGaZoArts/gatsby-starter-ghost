@@ -61,7 +61,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </Link>
                             </div>
                             <div className="site-mast-right">
-                                <span style={{ color: '#666', fontSize: '2rem' }}>Blog Juan Ladino</span>
+                                <span style={{ color: '#FFFFFF', fontSize: '2rem' }}>Blog Juan Ladino</span>
                             </div>
                         </div>
                         <nav className="site-nav">
@@ -95,7 +95,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <footer className="site-foot">
                     <div className="site-foot-nav container">
                         <div className="site-foot-nav-left">
-                            <Link to="/">{site.title}</Link> © {new Date().getFullYear()} &mdash; Desarrollado para el ejercicio de clase
+                            <Link to="/">{site.title}</Link> © {new Date().getFullYear()} &mdash; Actividad 1 - UNIR
                         </div>
                         <div className="site-foot-nav-right">
                             <Navigation
