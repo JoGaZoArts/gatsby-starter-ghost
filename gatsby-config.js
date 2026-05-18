@@ -197,4 +197,9 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-offline`,
     ],
+    // ESTA ES LA LÍNEA INTEGRADA PARA EVITAR EL TIMEOUT DE NETLIFY
+    flags: {
+        FAST_DEV: false,
+        DEV_SSR: false
+    }
 };
