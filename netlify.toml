@@ -1,8 +1,7 @@
 [build]
   publish = "public"
-  command = "NODE_ENV=production gatsby build"
+  command = "gatsby build"
 
 [functions]
   node_bundler = "esbuild"
   external_node_modules = ["@lmdb/lmdb-linux-x64", "lmdb"]
-  
