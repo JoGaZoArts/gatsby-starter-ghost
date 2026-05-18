@@ -2,102 +2,55 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link, StaticQuery, graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-
-import { Navigation } from ".";
-import config from "../../utils/siteConfig";
 
 // Styles
 import "../../styles/app.css";
 
 /**
- * Main layout component
- *
- * The Layout component wraps around each page and template.
- * It also provides the header, footer as well as the main
- * styles, and meta data for each page.
- *
+ * Main layout component (Optimizado para la UNIR con barra negra)
  */
-const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
-    const site = data.allGhostSettings.edges[0].node;
-    const twitterUrl = site.twitter
-        ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}`
-        : null;
-    const facebookUrl = site.facebook
-        ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}`
-        : null;
-
+const DefaultLayout = ({ children, bodyClass }) => {
     return <>
         <Helmet>
-            <html lang={site.lang} />
-            <style type="text/css">{`${site.codeinjection_styles}`}</style>
+            <html lang="es" />
             <body className={bodyClass} />
+            {/* Forzamos el título aquí arriba */}
             <title>Juan Ladino's Blog</title>
             <meta property="og:title" content="Juan Ladino's Blog" />
         </Helmet>
 
         <div className="viewport">
             <div className="viewport-top">
-                {/* The main header section on top of the screen */}
-                <header
-                    className="site-head"
-                    style={{
-                        ...(site.cover_image && {
-                            backgroundImage: `url(${site.cover_image})`,
-                        }),
-                    }}
-                >
-                    <div className="container">
-                        <div className="site-mast">
-                            <div className="site-mast-left">
-                                <Link to="/">
-                                    {site.logo ? (
-                                        <img
-                                            className="site-logo"
-                                            src={site.logo}
-                                            alt={site.title}
-                                        />
-                                    ) : (
-                                        <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt={site.title} />
-                                    )}
-                                </Link>
-                            </div>
-                            <div className="site-mast-right">
-                                <span style={{ color: '#FFFFFF', fontSize: '2rem' }}>Juan Ladino´s Blog</span>
-                            </div>
+                {/* Cabecera con la elegante franja negra original restaurada */}
+                <header className="site-head" style={{ padding: "30px 0", background: "#15171A", borderBottom: "1px solid #000" }}>
+                    <div className="container" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <div className="site-mast" style={{ display: "block", textAlign: "center" }}>
+                            <Link to="/" style={{ textDecoration: 'none' }}>
+                                <span style={{ 
+                                    color: '#FFFFFF', /* Letras blancas para contrastar con el fondo negro */
+                                    fontSize: '4rem', 
+                                    fontWeight: '800',
+                                    letterSpacing: '-1px'
+                                }}>
+                                    Juan Ladino's Blog
+                                </span>
+                            </Link>
                         </div>
-                        <nav className="site-nav">
-                            <div className="site-nav-left">
-                                {/* The navigation items as setup in Ghost */}
-                                <Navigation
-                                    data={site.navigation}
-                                    navClass="site-nav-item"
-                                />
-                            </div>
-                            <div className="site-nav-right">
-                            </div>
-                        </nav>
                     </div>
                 </header>
 
                 <main className="site-main">
-                    {/* All the main content gets inserted here, index.js, post.js */}
+                    {/* Aquí se inyectan las entradas del index.js */}
                     {children}
                 </main>
             </div>
 
             <div className="viewport-bottom">
-                {/* The footer at the very bottom of the screen */}
-                <footer className="site-foot">
-                    <div className="site-foot-nav container">
-                        <div className="site-foot-nav-left">
-                            <Link to="/">{site.title}</Link> © {new Date().getFullYear()} &mdash; Actividad 1 - UNIR
-                        </div>
-                        <div className="site-foot-nav-right">
-                            <Navigation
-                                data={site.navigation}
-                                navClass="site-foot-nav-item"
-                            />
+                {/* Footer limpio sin enlaces repetidos */}
+                <footer className="site-foot" style={{ padding: "20px 0", background: "#f8f9fa", marginTop: "40px" }}>
+                    <div className="site-foot-nav container" style={{ display: "flex", justifyContent: "center" }}>
+                        <div className="site-foot-nav-left" style={{ textAlign: "center", color: "#666" }}>
+                            <Link to="/" style={{ fontWeight: "600", color: "#15171a", textDecoration: "none" }}>Juan Ladino's Blog</Link> © {new Date().getFullYear()} &mdash; Actividad 1 - UNIR
                         </div>
                     </div>
                 </footer>
@@ -111,7 +64,6 @@ DefaultLayout.propTypes = {
     bodyClass: PropTypes.string,
     isHome: PropTypes.bool,
     data: PropTypes.shape({
-        file: PropTypes.object,
         allGhostSettings: PropTypes.object.isRequired,
     }).isRequired,
 };
@@ -122,13 +74,8 @@ const DefaultLayoutSettingsQuery = (props) => (
   allGhostSettings {
     edges {
       node {
-        ...GhostSettingsFields
+        title
       }
-    }
-  }
-  file(relativePath: {eq: "ghost-icon.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 30, height: 30, layout: FIXED)
     }
   }
 }
