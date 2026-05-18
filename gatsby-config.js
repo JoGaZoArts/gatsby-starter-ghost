@@ -23,6 +23,21 @@ try {
             ? ghostConfig.development
             : ghostConfig.production;
 
+// ... viene el bloque de Ghost de arriba ...
+    }
+}
+
+// 1. AGREGA ESTA LÍNEA AQUÍ MISMO:
+process.env.SITEURL = `https://juan-ladino-s-blog.netlify.com`;
+
+// El código que ya tienes continuará aquí abajo:
+if (
+    process.env.NODE_ENV === `production` &&
+    config.siteUrl === `http://localhost:8000` &&
+    !process.env.SITEURL
+) {
+// ... el resto del archivo sigue igual ...
+    
     if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
         throw new Error(
             `GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`
