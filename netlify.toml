@@ -1,6 +1,8 @@
 [build]
+  publish = "public"
   command = "NODE_ENV=production gatsby build"
-  publish = "public/"
 
-[template]
-  incoming-hooks = ["Ghost"]
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@lmdb/lmdb-linux-x64", "lmdb"]
+  
