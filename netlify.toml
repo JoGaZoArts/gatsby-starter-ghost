@@ -1,7 +1,13 @@
 [build]
   publish = "public"
-  command = "gatsby build"
+  command = "rm -rf .cache public && npm run build"
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["@lmdb/lmdb-linux-x64", "lmdb"]
+  external_node_modules = ["@lmdb/lmdb-linux-x64", "lmdb", "sharp"]
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
