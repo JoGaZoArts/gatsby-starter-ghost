@@ -61,19 +61,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </Link>
                             </div>
                             <div className="site-mast-right">
-                                <span style={{ color: '#666', fontSize: '0.9rem' }}>Blog Juan Ladino</span>
+                                <span style={{ color: '#666', fontSize: '2rem' }}>Blog Juan Ladino</span>
                             </div>
                         </div>
-                        {isHome ? (
-                            <div className="site-banner">
-                                <h1 className="site-banner-title">
-                                    {site.title}
-                                </h1>
-                                <p className="site-banner-desc">
-                                    {site.description}
-                                </p>
-                            </div>
-                        ) : null}
                         <nav className="site-nav">
                             <div className="site-nav-left">
                                 {/* The navigation items as setup in Ghost */}
@@ -105,16 +95,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <footer className="site-foot">
                     <div className="site-foot-nav container">
                         <div className="site-foot-nav-left">
-                            <Link to="/">{site.title}</Link> © 2021 &mdash;
-                            Published with{" "}
-                            <a
-                                className="site-foot-nav-item"
-                                href="https://ghost.org"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Ghost
-                            </a>
+                            <Link to="/">{site.title}</Link> © {new Date().getFullYear()} &mdash; Desarrollado para el ejercicio de clase
                         </div>
                         <div className="site-foot-nav-right">
                             <Navigation
