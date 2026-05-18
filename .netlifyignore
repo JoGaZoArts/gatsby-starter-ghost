@@ -1,0 +1,7 @@
+# Ignorar carpetas pesadas de desarrollo y caché de Gatsby
+node_modules
+.cache
+.git
+src
+*.log
+*.map
