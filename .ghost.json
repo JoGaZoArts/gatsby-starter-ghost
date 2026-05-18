@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": "https://juan-ladino-s-blog.netlify.com/",
+    "contentApiKey": "865427f5-dafa-4747-9dbc-f40ef4126cd8"
   },
   "production": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": "https://juan-ladino-s-blog.netlify.com/",
+    "contentApiKey": "865427f5-dafa-4747-9dbc-f40ef4126cd8"
   }
 }
